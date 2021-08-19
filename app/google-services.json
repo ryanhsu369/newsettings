@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "930308018279",
+    "project_id": "customlogindemo-ec361",
+    "storage_bucket": "customlogindemo-ec361.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930308018279:android:0d6b854493af3b826f84c2",
+        "android_client_info": {
+          "package_name": "com.example.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930308018279-4t4svfmalo19lp9geeiefd4pd8v79mc6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfBy4O8N-vUviPOC9frhdhD-LwYQ6VZQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930308018279-4t4svfmalo19lp9geeiefd4pd8v79mc6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "930308018279-hrmhl67jvel8vregr9i886soa7vfa9h1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mymadison.CustomLoginDemo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930308018279:android:689a6599a70a30506f84c2",
+        "android_client_info": {
+          "package_name": "com.example.newsettings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930308018279-4t4svfmalo19lp9geeiefd4pd8v79mc6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfBy4O8N-vUviPOC9frhdhD-LwYQ6VZQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930308018279-4t4svfmalo19lp9geeiefd4pd8v79mc6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "930308018279-hrmhl67jvel8vregr9i886soa7vfa9h1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mymadison.CustomLoginDemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
