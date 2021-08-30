@@ -114,7 +114,7 @@ public class Register extends AppCompatActivity {
 
                             Toast.makeText(Register.this,"帳號建立。",Toast.LENGTH_SHORT).show();
                             userId = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userId);
+                            DocumentReference documentReference = fStore.collection("users").document(email);
                             Map<String,Object> user = new HashMap<>();
                             user.put("fName",fullName);
                             user.put("email",email);

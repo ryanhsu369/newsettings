@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:onClick="back"
-        android:text="◀ 個人基本資料"
+        android:text="◀ 設定"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -44,6 +44,7 @@
         android:layout_marginTop="50dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00512232"
+        android:onClick="updatename"
         android:text="完成"
         android:textColor="#096BB8"
         android:textSize="20sp" />

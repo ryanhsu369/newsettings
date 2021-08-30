@@ -13,6 +13,7 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class FirstPage extends AppCompatActivity {
-    ImageView signIn;
+    Button signIn;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
 
@@ -55,7 +56,9 @@ public class FirstPage extends AppCompatActivity {
 
         createRequest();
 
-        findViewById(R.id.signIn).setOnClickListener(new View.OnClickListener() {
+        signIn = findViewById(R.id.signIn);
+
+        signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resultLauncher.launch(new Intent(mGoogleSignInClient.getSignInIntent()));

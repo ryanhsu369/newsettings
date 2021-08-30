@@ -51,23 +51,29 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="App"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <Button
         android:id="@+id/signIn"
-        android:layout_width="50dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="登入"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:paddingRight="42dp"
+        app:cornerRadius="45sp"
         android:layout_marginBottom="80dp"
+        android:drawableLeft="@drawable/googleg_standard_color_18"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
+        app:strokeColor="@color/black"
+        app:strokeWidth="2sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
