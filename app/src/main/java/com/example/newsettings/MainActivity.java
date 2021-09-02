@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -24,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -85,35 +88,52 @@ public class MainActivity extends AppCompatActivity {
                 _email.setText(documentSnapshot.getString("email"));
             }
         });
-
+//新增Dialog
         mdelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WriteBatch batch = fStore.batch();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("刪除")
+                .setMessage("確認是否要刪除行程？")
+                .setIcon(R.drawable.ic_baseline_delete_24)
+                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        WriteBatch batch = fStore.batch();
 
-                fStore.collection("users").document(userEmail).collection("test")
-                        .get()
-                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                        batch.delete(document.getReference());
-                                        Toast.makeText(MainActivity.this,"刪除成功",Toast.LENGTH_SHORT).show();
-                                    }
-                                } else {
-                                    Log.w(TAG, "Error getting documents.", task.getException());
-                                    Toast.makeText(MainActivity.this,"刪除失敗",Toast.LENGTH_SHORT).show();
-                                }
-                                batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        fStore.collection("users").document(userEmail).collection("test")
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        Log.w(TAG, "Batch completed.", task.getException());
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                                batch.delete(document.getReference());
+                                                Toast.makeText(MainActivity.this, "刪除成功", Toast.LENGTH_SHORT).show();
+                                            }
+                                        } else {
+                                            Log.w(TAG, "Error getting documents.", task.getException());
+                                            Toast.makeText(MainActivity.this, "刪除失敗", Toast.LENGTH_SHORT).show();
+                                        }
+                                        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Log.w(TAG, "Batch completed.", task.getException());
+                                            }
+                                        });
                                     }
                                 });
-                            }
-                        });
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
             }
+
         });
     }
 
